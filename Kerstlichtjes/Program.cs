@@ -1,6 +1,8 @@
 using System;
 using nanoFramework.DependencyInjection;
+using nanoFramework.Logging.Debug;
 using Kerstlichtjes.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Kerstlichtjes
 {
@@ -17,9 +19,10 @@ namespace Kerstlichtjes
         private static ServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
-            .AddSingleton(typeof(Application))
-            .AddSingleton(typeof(IBlinkService), typeof(BlinkService))
-            .BuildServiceProvider();
+                .AddSingleton(typeof(ILoggerFactory), typeof(DebugLoggerFactory))
+                .AddSingleton(typeof(IBlinkService), typeof(BlinkService))
+                .AddSingleton(typeof(Application))
+                .BuildServiceProvider();
         }
     }
 }

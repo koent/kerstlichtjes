@@ -36,6 +36,10 @@
       <HintPath>..\packages\nanoFramework.DependencyInjection.1.0.12\lib\nanoFramework.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nanoFramework.Logging, Version=1.1.47.7077, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Logging.1.1.47\lib\nanoFramework.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nanoFramework.Runtime.Events, Version=1.11.1.42088, Culture=neutral, PublicKeyToken=c07d481e9758c731">
       <HintPath>..\packages\nanoFramework.Runtime.Events.1.11.1\lib\nanoFramework.Runtime.Events.dll</HintPath>
       <Private>True</Private>
