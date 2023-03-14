@@ -15,14 +15,14 @@ namespace Kerstlichtjes.Controllers
         }
 
         [Route("/on")]
-        [Method("GET")]
+        [Method("POST")]
         public void PostOn(WebServerEventArgs e)
         {
             _ledService.On();
         }
 
         [Route("/off")]
-        [Method("GET")]
+        [Method("POST")]
         public void PostOff(WebServerEventArgs e)
         {
             _ledService.Off();
