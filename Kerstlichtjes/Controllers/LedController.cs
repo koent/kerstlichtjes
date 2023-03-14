@@ -19,6 +19,8 @@ namespace Kerstlichtjes.Controllers
         public void PostOn(WebServerEventArgs e)
         {
             _ledService.On();
+            e.Context.Response.ContentType = "text/plain";
+            WebServer.OutPutStream(e.Context.Response, "on");
         }
 
         [Route("/off")]
@@ -26,6 +28,8 @@ namespace Kerstlichtjes.Controllers
         public void PostOff(WebServerEventArgs e)
         {
             _ledService.Off();
+            e.Context.Response.ContentType = "text/plain";
+            WebServer.OutPutStream(e.Context.Response, "off");
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using nanoFramework.WebServer;
+using Kerstlichtjes.Configuration;
 
 namespace Kerstlichtjes.Controllers
 {
@@ -13,9 +14,8 @@ namespace Kerstlichtjes.Controllers
         [Method("GET")]
         public void GetIndex(WebServerEventArgs e)
         {
-            var content = "Hello, World!";
-            e.Context.Response.ContentType = "text/plain";
-            WebServer.OutPutStream(e.Context.Response, content);
+            e.Context.Response.ContentType = "text/html";
+            WebServer.OutPutStream(e.Context.Response, Frontend.Value);
         }
 
         [Route("/time")]

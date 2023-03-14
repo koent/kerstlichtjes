@@ -18,6 +18,7 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
+    <Compile Include="Configuration/Frontend.cs" />
     <Compile Include="Configuration/SecretConstants.cs" />
     <Compile Include="Controllers/IndexController.cs" />
     <Compile Include="Controllers/LedController.cs" />

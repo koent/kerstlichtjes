@@ -33,12 +33,14 @@ namespace Kerstlichtjes
                 return;
             }
 
-            Console.WriteLine($"Connected with ip address {GetIpAddress()}");
+            Console.WriteLine($"Connected");
 
             ServiceProvider services = ConfigureServices();
-            ServicesConfigured(services);
-            using (var webServer = new KerstlichtjesWebServer(80, HttpProtocol.Http, new Type[] { typeof(IndexController), typeof(LedController) }, services))
+            int port = 80;
+            using (var webServer = new KerstlichtjesWebServer(port, HttpProtocol.Http, new Type[] { typeof(IndexController), typeof(LedController) }, services))
             {
+                ServicesConfigured(services);
+                Console.WriteLine($"Listening on http://{GetIpAddress()}:{port}/");
                 webServer.Start();
                 Thread.Sleep(Timeout.Infinite);
             }
