@@ -18,12 +18,12 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="Application.cs" />
     <Compile Include="Configuration/SecretConstants.cs" />
     <Compile Include="Controllers/IndexController.cs" />
+    <Compile Include="Controllers/LedController.cs" />
     <Compile Include="KerstlichtjesWebServer.cs" />
-    <Compile Include="Services\IBlinkService.cs" />
-    <Compile Include="Services\BlinkService.cs" />
+    <Compile Include="Services\ILedService.cs" />
+    <Compile Include="Services\LedService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

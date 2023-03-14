@@ -36,7 +36,7 @@ namespace Kerstlichtjes
             Console.WriteLine($"Connected with ip address {GetIpAddress()}");
 
             ServiceProvider services = ConfigureServices();
-            using (var webServer = new KerstlichtjesWebServer(80, HttpProtocol.Http, new Type[] { typeof(IndexController) }, services))
+            using (var webServer = new KerstlichtjesWebServer(80, HttpProtocol.Http, new Type[] { typeof(IndexController), typeof(LedController) }, services))
             {
                 webServer.Start();
                 Thread.Sleep(Timeout.Infinite);
@@ -47,8 +47,7 @@ namespace Kerstlichtjes
         {
             return new ServiceCollection()
                 .AddSingleton(typeof(ILoggerFactory), typeof(DebugLoggerFactory))
-                .AddSingleton(typeof(IBlinkService), typeof(BlinkService))
-                .AddSingleton(typeof(Application))
+                .AddSingleton(typeof(ILedService), typeof(LedService))
                 .BuildServiceProvider();
         }
 
