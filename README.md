@@ -1,5 +1,6 @@
 # Kerstlichtjes
 
+This is version 2 of Kerstlichtjes, completely rewritten in .NET using [NanoFramework](https://www.nanoframework.net/).
 
 ## Setup
 1. Make a file `build/customVariables.sh`.

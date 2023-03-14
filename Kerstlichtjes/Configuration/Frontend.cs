@@ -4,26 +4,30 @@ namespace Kerstlichtjes.Configuration
     {
         public const string Value = @"<!DOCTYPE html>
 <html>
-<title>
-    Kerstlichtjes
-</title>
-<script>
-    var xhr = new XMLHttpRequest();
-    host = 'http://' + window.location.host;
 
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            on = xhr.responseText === 'on';
-            document.getElementById('status').style.color = on ? 'darkgreen' : 'white';
+<head>
+    <meta name='viewport' content='initial-scale=2.0'>
+    <title>
+        Kerstlichtjes
+    </title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        host = 'http://' + window.location.host;
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                on = xhr.responseText === 'on';
+                document.getElementById('status').style.color = on ? 'darkgreen' : 'white';
+            }
         }
-    }
 
-    function set(on) {
-        url = on ? host + '/on' : host + '/off';
-        xhr.open('POST', url);
-        xhr.send();
-    }
-</script>
+        function set(on) {
+            url = on ? host + '/on' : host + '/off';
+            xhr.open('POST', url);
+            xhr.send();
+        }
+    </script>
+</head>
 
 <body>
     <div>
