@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Device.Gpio;
 
 namespace Kerstlichtjes.Services
@@ -25,6 +26,13 @@ namespace Kerstlichtjes.Services
         public void Off()
         {
             _led.Write(PinValue.Low);
+        }
+
+        public void Flash(int durationInMs)
+        {
+            _led.Toggle();
+            Thread.Sleep(durationInMs);
+            _led.Toggle();
         }
     }
 }

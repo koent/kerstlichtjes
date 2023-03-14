@@ -36,6 +36,7 @@ namespace Kerstlichtjes
             Console.WriteLine($"Connected with ip address {GetIpAddress()}");
 
             ServiceProvider services = ConfigureServices();
+            ServicesConfigured(services);
             using (var webServer = new KerstlichtjesWebServer(80, HttpProtocol.Http, new Type[] { typeof(IndexController), typeof(LedController) }, services))
             {
                 webServer.Start();
@@ -49,6 +50,12 @@ namespace Kerstlichtjes
                 .AddSingleton(typeof(ILoggerFactory), typeof(DebugLoggerFactory))
                 .AddSingleton(typeof(ILedService), typeof(LedService))
                 .BuildServiceProvider();
+        }
+
+        private static void ServicesConfigured(ServiceProvider services)
+        {
+            var ledService = services.GetService(typeof(ILedService)) as ILedService;
+            ledService.Flash();
         }
 
         private static string GetIpAddress()
